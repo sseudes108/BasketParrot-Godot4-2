@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var dead: bool = false
+
 func _ready():
 	pass 
 
@@ -18,3 +20,13 @@ func UpdateDebugLabel() -> void:
 		angular + 
 		linear
 		)
+
+func Die() -> void:
+	ExitedScreen()
+
+func ExitedScreen():
+	if dead == true:
+		return
+	dead = true
+	SignalManager.ParrotDead.emit()
+	pass
