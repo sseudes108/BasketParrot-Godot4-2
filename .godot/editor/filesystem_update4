@@ -1,0 +1,8 @@
+res://Project/Level/level.tscn
+res://Project/Cup/Cup.tscn
+res://Project/Parrot/Parrot.tscn
+res://Project/Animal/Parrot/Parrot.tscn
+res://Project/Singletons/SignalManager.gd
+res://Project/Animal/Parrot/Parrot.gd
+res://Project/Level/Level.gd
+res://Project/Singletons/Pandora.gd

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c61pgqxfrg14h"]
+
+[ext_resource type="Script" path="res://Project/Level/Level.gd" id="1_3jpst"]
+[ext_resource type="Texture2D" uid="uid://b3lcljag44y1n" path="res://assets/scene/colored_castle.png" id="1_ftscm"]
+[ext_resource type="PackedScene" uid="uid://hne77bo3sgul" path="res://Project/Cup/Cup.tscn" id="2_tv8og"]
+[ext_resource type="PackedScene" uid="uid://btqoves7inqop" path="res://Project/Animal/Parrot/Parrot.tscn" id="3_5va4r"]
+[ext_resource type="Script" path="res://Project/Singletons/SignalManager.gd" id="4_vb2rt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xq6qp"]
+bounce = 0.54
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_3jpst")
+
+[node name="ColoredCastle" type="Sprite2D" parent="."]
+position = Vector2(538, 294)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_ftscm")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_5va4r")]
+position = Vector2(515, 34)
+physics_material_override = SubResource("PhysicsMaterial_xq6qp")
+
+[node name="Woodcup" parent="." instance=ExtResource("2_tv8og")]
+position = Vector2(515, 469)
+
+[node name="Debug Label" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 27.0
+offset_right = 447.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "trstdrasdtrasdtrasd
+asdas
+dasdasd
+asdasd
+asdasd
+asdasd
+asdaasdasd"
+script = ExtResource("4_vb2rt")
+metadata/_edit_use_anchors_ = true
