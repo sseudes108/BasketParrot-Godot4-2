@@ -14,7 +14,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_ftscm")
 
 [node name="Woodcup" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(228, 529)
+position = Vector2(180, 576)
 
 [node name="Debug Label" type="Label" parent="."]
 offset_left = 27.0
@@ -33,4 +33,4 @@ script = ExtResource("4_vb2rt")
 metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(142, 270)
+position = Vector2(118, 399)
