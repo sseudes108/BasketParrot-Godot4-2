@@ -86,6 +86,7 @@ func Release():
 	released = true
 	freeze = false
 	apply_central_force(GetImpulse())
+	lunch.pitch_scale = randf_range(0.7,1.1)
 	lunch.play()
 
 func GetImpulse() -> Vector2:

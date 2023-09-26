@@ -12,7 +12,8 @@ func _ready():
 	ParrotDead()
 
 func _process(delta):
-	pass
+	if ( Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_ESCAPE)):
+		GameManager.LoadMainScene()
 
 func UpdateDebugLabel(text: String) -> void:
 	debugLabel.text = text

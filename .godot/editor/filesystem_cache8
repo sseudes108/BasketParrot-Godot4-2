@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1695721522
+::res://::1695764128
 icon.svg::CompressedTexture2D::1718209601915423857::1678611704::1695423956::1::::<><>::
 README.md::TextFile::-1::1695423655::0::1::::<><>::
 ::res://assets/::1695423932
-::res://assets/audio/::1695423957
+::res://assets/audio/::1695724824
 birdsong.wav::AudioStreamWAV::3754851443113403027::1675848410::1695724824::1::::<><>::
 catapult.ogg::AudioStreamOggVorbis::1802323212556346580::1675344528::1695423956::1::::<><>::
 jazzyfrenchy.mp3::AudioStreamMP3::7710356932493334761::1669029364::1695423956::1::::<><>::
@@ -40,9 +40,9 @@ Cup.tscn::PackedScene::518460512611263771::1695724305::0::1::::<><>::uid://b2x3m
 ::res://Project/Level/::1695724305
 Level.gd::GDScript::-1::1695486008::0::1::::<>Node2D<>::
 level.tscn::PackedScene::7003291687579952105::1695724305::0::1::::<><>::res://Project/Level/Level.gd<>uid://b3lcljag44y1n::::res://assets/scene/colored_castle.png<>uid://hne77bo3sgul::::res://Project/Cup/Cup.tscn<>res://Project/Singletons/SignalManager.gd<>uid://vc28a5expyb::::res://Project/Water/Water.tscn
-::res://Project/Main/::1695724726
-Main.tscn::PackedScene::2673993755417762996::1695724823::0::1::::<><>::res://Project/Main/Main.gd<>uid://2rheit7csbt6::::res://assets/env/MainBG.png<>uid://btq44caig17gx::::res://assets/audio/birdsong.wav
-Main.gd::GDScript::-1::1695724817::0::1::::<>Control<>::
+::res://Project/Main/::1695725938
+Main.gd::GDScript::-1::1695725706::0::1::::<>Control<>::
+Main.tscn::PackedScene::2673993755417762996::1695725938::0::1::::<><>::res://Project/Main/Main.gd<>uid://2rheit7csbt6::::res://assets/env/MainBG.png<>uid://dm225yuimhskd::::res://assets/fonts/LuckiestGuy-Regular.ttf<>uid://btq44caig17gx::::res://assets/audio/birdsong.wav
 ::res://Project/Singletons/::1695686643
 GameManager.gd::GDScript::-1::1695591492::0::1::::<>Node<>::
 Pandora.gd::GDScript::-1::1695684743::0::1::::Pandora<>RefCounted<>::
