@@ -1,9 +1,11 @@
+Timer
+StaticBody2D
+RigidBody2D
+AnimationPlayer
 AudioStreamPlayer
 VisibleOnScreenNotifier2D
 Marker2D
 Label
 CollisionShape2D
 Sprite2D
-RigidBody2D
 CollisionPolygon2D
-StaticBody2D

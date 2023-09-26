@@ -14,7 +14,19 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_ftscm")
 
 [node name="Woodcup" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(589, 523)
+position = Vector2(686, 523)
+
+[node name="Woodcup4" parent="." instance=ExtResource("2_tv8og")]
+position = Vector2(832, 523)
+
+[node name="Woodcup5" parent="." instance=ExtResource("2_tv8og")]
+position = Vector2(977, 523)
+
+[node name="Woodcup3" parent="." instance=ExtResource("2_tv8og")]
+position = Vector2(542, 523)
+
+[node name="Woodcup2" parent="." instance=ExtResource("2_tv8og")]
+position = Vector2(400, 523)
 
 [node name="Debug Label" type="Label" parent="."]
 offset_left = 27.0

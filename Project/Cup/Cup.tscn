@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://hne77bo3sgul"]
+[gd_scene load_steps=8 format=3 uid="uid://hne77bo3sgul"]
 
 [ext_resource type="Texture2D" uid="uid://b2x3mxu4wgk47" path="res://assets/env/elementWood015.png" id="1_evnqv"]
+[ext_resource type="Script" path="res://Project/Cup/Cup.gd" id="1_jt8gg"]
 [ext_resource type="Texture2D" uid="uid://dpwxagjvr244c" path="res://assets/env/elementWood004.png" id="2_qik4t"]
+[ext_resource type="AudioStream" uid="uid://cl8jsxvdlbxk6" path="res://assets/audio/vanish.wav" id="3_gx3cn"]
 
-[node name="Woodcup" type="StaticBody2D"]
+[sub_resource type="Animation" id="Animation_ysy3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.66, 0.66)]
+}
+
+[sub_resource type="Animation" id="Animation_c23at"]
+resource_name = "Vanish"
+length = 0.72
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.66, 0.66), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7h8aw"]
+_data = {
+"RESET": SubResource("Animation_ysy3n"),
+"Vanish": SubResource("Animation_c23at")
+}
+
+[node name="Woodcup" type="StaticBody2D" groups=["Cup"]]
+script = ExtResource("1_jt8gg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.66, 0.66)
@@ -23,3 +63,18 @@ texture = ExtResource("1_evnqv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-71, -71, -73, 23, 72, 23, 72, -70, 24, -23, -24, -23)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Vanish")
+libraries = {
+"": SubResource("AnimationLibrary_7h8aw")
+}
+
+[node name="Vanish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gx3cn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="finished" from="Vanish" to="." method="Vanished"]
+[connection signal="timeout" from="Timer" to="." method="OnTimeout"]
