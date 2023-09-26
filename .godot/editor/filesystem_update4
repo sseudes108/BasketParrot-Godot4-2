@@ -12,3 +12,4 @@ res://Project/Level/level2.tscn
 res://Project/Animal/Parrot/Parrot.gd
 res://Project/Main/Main.gd
 res://Project/Level/Level.gd
+res://Project/Singletons/ScoreManager.gd

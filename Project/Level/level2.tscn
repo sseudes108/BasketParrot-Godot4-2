@@ -7,3 +7,6 @@
 
 [node name="Woodcup" parent="." index="4" instance=ExtResource("2_teqya")]
 position = Vector2(706, 311)
+
+[node name="Woodcup2" parent="." index="5" instance=ExtResource("2_teqya")]
+position = Vector2(945, 417)

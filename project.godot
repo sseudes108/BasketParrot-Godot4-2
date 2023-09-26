@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalManager="*res://Project/Singletons/SignalManager.gd"
 GameManager="*res://Project/Singletons/GameManager.gd"
+ScoreManager="*res://Project/Singletons/ScoreManager.gd"
 
 [display]
 

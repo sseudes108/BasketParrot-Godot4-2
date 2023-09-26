@@ -11,8 +11,10 @@ const DEFAULTSCALE: Vector2 = Vector2(1.0,1.0)
 
 func _ready():
 	level.text = str(levelNumber)
+	score.text = str(ScoreManager.BestForLevel(levelNumber))
 
 func HoverOn():
+	ScoreManager.LevelSelected(levelNumber)
 	scale = HOVERSCALE
 
 func HoverOff():

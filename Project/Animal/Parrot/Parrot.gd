@@ -30,6 +30,7 @@ var lastCollisionCounter: int = 0
 var dead: bool = false
 
 func _ready():
+	SetUpTargets()
 	start = global_position
 
 func _physics_process(delta):
@@ -50,6 +51,11 @@ func _physics_process(delta):
 				Drag()
 
 # Logic
+
+func SetUpTargets() -> void:
+	var targetCup = get_tree().get_nodes_in_group(GameManager.CUPGROUP)
+	ScoreManager.SetTargetCups(targetCup.size())
+
 func Grab() -> void:
 	dragging = true
 	released = false
