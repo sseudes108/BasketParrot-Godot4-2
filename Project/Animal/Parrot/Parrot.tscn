@@ -29,21 +29,25 @@ scale = Vector2(2.1, 2.1)
 
 [node name="Stretch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_h1wbg")
+volume_db = -9.0
 
 [node name="Lunch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_n5tt7")
+volume_db = -9.0
 
 [node name="Collision" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g0v6w")
+volume_db = -9.0
 
 [node name="Stop" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Hit" type="Timer" parent="."]
-wait_time = 7.2
+wait_time = 6.0
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="MouseInput"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="ExitedScreen"]
 [connection signal="timeout" from="Stop" to="." method="TimeToStop"]

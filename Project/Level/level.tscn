@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c61pgqxfrg14h"]
+[gd_scene load_steps=6 format=3 uid="uid://c61pgqxfrg14h"]
 
 [ext_resource type="Script" path="res://Project/Level/Level.gd" id="1_3jpst"]
 [ext_resource type="Texture2D" uid="uid://b3lcljag44y1n" path="res://assets/scene/colored_castle.png" id="1_ftscm"]
 [ext_resource type="PackedScene" uid="uid://hne77bo3sgul" path="res://Project/Cup/Cup.tscn" id="2_tv8og"]
 [ext_resource type="Script" path="res://Project/Singletons/SignalManager.gd" id="4_vb2rt"]
+[ext_resource type="PackedScene" uid="uid://vc28a5expyb" path="res://Project/Water/Water.tscn" id="5_4ei13"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3jpst")
@@ -14,19 +15,13 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_ftscm")
 
 [node name="Woodcup" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(686, 523)
+position = Vector2(896, 262)
 
 [node name="Woodcup4" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(832, 523)
-
-[node name="Woodcup5" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(977, 523)
-
-[node name="Woodcup3" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(542, 523)
+position = Vector2(709, 433)
 
 [node name="Woodcup2" parent="." instance=ExtResource("2_tv8og")]
-position = Vector2(400, 523)
+position = Vector2(410, 372)
 
 [node name="Debug Label" type="Label" parent="."]
 offset_left = 27.0
@@ -47,3 +42,5 @@ metadata/_edit_use_anchors_ = true
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(108, 420)
 gizmo_extents = 0.0
+
+[node name="Area2D" parent="." instance=ExtResource("5_4ei13")]

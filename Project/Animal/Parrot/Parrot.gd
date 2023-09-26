@@ -93,10 +93,11 @@ func GetImpulse() -> Vector2:
 
 func Collision() -> void:
 	if(
-		lastCollisionCounter == 0 and get_contact_count() > 0
+		lastCollisionCounter == 0 and 
+		get_contact_count() > 0
 		and collision.playing == false
 	):
-		collision.play()
+#		collision.play()
 		lastCollisionCounter = get_contact_count()
 		stop.start()
 		hit.start()
@@ -173,3 +174,12 @@ func UpdateDebugLabel() -> void:
 		angular + 
 		linear
 		)
+
+func _on_body_entered(body):
+	var contacts = get_colliding_bodies()
+	if contacts[0].is_in_group(GameManager.CUPGROUP) == true:
+		if collision. playing == false:
+			collision.pitch_scale = randf_range(0.5,1.1)
+			collision.play()
+	else:
+		pass
