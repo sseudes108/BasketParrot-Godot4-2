@@ -11,10 +11,6 @@ var targetCups: int = 0
 func _ready():
 	SignalManager.CupVanished.connect(CupVanished)
 
-
-func _process(delta):
-	pass
-
 func CheckAdd(level: int) -> void:
 	if levelScores.has(level) == false:
 		levelScores[level] = DEFAULTSCORE

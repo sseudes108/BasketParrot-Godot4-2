@@ -4,6 +4,6 @@ extends Area2D
 
 
 
-func BodyEntered(body):
+func BodyEntered(_body):
 	splash.pitch_scale = randf_range(0.5,1.1)
 	splash.play()

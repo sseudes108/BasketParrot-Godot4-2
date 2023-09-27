@@ -1,9 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://vv7g41ap4yf0"]
+[gd_scene load_steps=4 format=3 uid="uid://vv7g41ap4yf0"]
 
 [ext_resource type="PackedScene" uid="uid://c61pgqxfrg14h" path="res://Project/Level/level.tscn" id="1_4or5i"]
 [ext_resource type="PackedScene" uid="uid://hne77bo3sgul" path="res://Project/Cup/Cup.tscn" id="2_gxxkl"]
+[ext_resource type="PackedScene" uid="uid://l7ik5s3rnkq7" path="res://Project/Launch/Wall.tscn" id="3_1u8bn"]
 
 [node name="Level" instance=ExtResource("1_4or5i")]
 
 [node name="Woodcup" parent="." index="4" instance=ExtResource("2_gxxkl")]
-position = Vector2(686, 274)
+position = Vector2(765, 441)
+
+[node name="Woodcup2" parent="." index="5" instance=ExtResource("2_gxxkl")]
+position = Vector2(453, 450)
+
+[node name="Woodcup3" parent="." index="6" instance=ExtResource("2_gxxkl")]
+position = Vector2(920, 304)
+
+[node name="Woodcup4" parent="." index="7" instance=ExtResource("2_gxxkl")]
+position = Vector2(719, 204)
+
+[node name="StaticBody2D" parent="." index="10" instance=ExtResource("3_1u8bn")]
+position = Vector2(565, 287)
+rotation = 1.0081
+scale = Vector2(0.42, 0.54)
+
+[node name="StaticBody2D2" parent="." index="11" instance=ExtResource("3_1u8bn")]
+position = Vector2(828, 105)
+rotation = -0.788481
+scale = Vector2(0.42, 0.54)

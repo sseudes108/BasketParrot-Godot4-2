@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://btqoves7inqop"]
+[gd_scene load_steps=8 format=3 uid="uid://btqoves7inqop"]
 
 [ext_resource type="Script" path="res://Project/Animal/Parrot/Parrot.gd" id="1_qi6t6"]
 [ext_resource type="Texture2D" uid="uid://e4r7indyfbyf" path="res://assets/player/parrot.png" id="1_t17u1"]
 [ext_resource type="AudioStream" uid="uid://7thd33squi5m" path="res://assets/audio/stretch2.ogg" id="3_h1wbg"]
 [ext_resource type="AudioStream" uid="uid://0xb888scxqym" path="res://assets/audio/catapult.ogg" id="4_n5tt7"]
 [ext_resource type="AudioStream" uid="uid://dww6amqtanljy" path="res://assets/audio/kick_wood.ogg" id="5_g0v6w"]
+[ext_resource type="Texture2D" uid="uid://bqiyv5r3kpfkm" path="res://assets/items/arrow.png" id="6_4c53s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oarph"]
 radius = 20.025
@@ -46,6 +47,11 @@ one_shot = true
 [node name="Hit" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
+
+[node name="Arrow" type="Sprite2D" parent="."]
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("6_4c53s")
+offset = Vector2(154, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="MouseInput"]

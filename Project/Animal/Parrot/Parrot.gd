@@ -9,10 +9,13 @@ extends RigidBody2D
 @onready var stop = $Stop
 @onready var hit = $Hit
 
+@onready var arrow = $Arrow
+
 #Constants
 const STRETCHMAX: Vector2 = Vector2(-60,0)
 const STRETCHMIN: Vector2 = Vector2(0,60)
 const IMPULSEFORCE: float  = 810.0
+const IMPULSEMAX: float = 42000
 const FIREDELAY: float = 0.27
 const STOPPED: float = 0.2
 
@@ -24,14 +27,17 @@ var dragStart: Vector2 = Vector2.ZERO
 var draggedVector: Vector2 = Vector2.ZERO
 var lastDraggedPosition: Vector2 = Vector2.ZERO
 var lastDragAmount: float = 0.0
+var arrowScaleX: float = 0
 var firedTime: float = 0.0
 var lastCollisionCounter: int = 0
 
 var dead: bool = false
 
 func _ready():
-	SetUpTargets()
+#	SetUpTargets()
 	start = global_position
+	arrowScaleX = arrow.scale.x
+	arrow.hide()
 
 func _physics_process(delta):
 	UpdateDebugLabel()
@@ -50,17 +56,25 @@ func _physics_process(delta):
 			else:
 				Drag()
 
+func ScaleArrow() -> void:
+	var impulseLenght = GetImpulse().length()
+	var perc = impulseLenght / IMPULSEMAX
+	
+	arrow.scale.x = (arrowScaleX * perc) + arrowScaleX
+	arrow.rotation = (start - global_position).angle()
+
 # Logic
 
-func SetUpTargets() -> void:
-	var targetCup = get_tree().get_nodes_in_group(GameManager.CUPGROUP)
-	ScoreManager.SetTargetCups(targetCup.size())
+#func SetUpTargets() -> void:
+#	var targetCup = get_tree().get_nodes_in_group(GameManager.CUPGROUP)
+#	ScoreManager.SetTargetCups(targetCup.size())
 
 func Grab() -> void:
 	dragging = true
 	released = false
 	dragStart = get_global_mouse_position()
 	lastDraggedPosition = dragStart
+	arrow.show()
 
 func Drag() -> void:
 	var mousePosition = get_global_mouse_position()
@@ -86,6 +100,8 @@ func Drag() -> void:
 			stretch.play()
 	
 	global_position = start + draggedVector
+	
+	ScaleArrow()
 
 func Release():
 	dragging = false
@@ -95,6 +111,7 @@ func Release():
 	lunch.pitch_scale = randf_range(0.7,1.1)
 	lunch.play()
 	ScoreManager.AttemptMade()
+	arrow.hide()
 
 func GetImpulse() -> Vector2:
 	return draggedVector * -1 * IMPULSEFORCE
@@ -145,7 +162,7 @@ func ExitedScreen():
 	pass
 
 #Input
-func MouseInput(viewport, event: InputEvent, shape_idx):
+func MouseInput(_viewport, event: InputEvent, _shape_idx):
 	if dragging == true or released == true:
 		return
 	
@@ -155,7 +172,7 @@ func MouseInput(viewport, event: InputEvent, shape_idx):
 #Debug
 func UpdateDebugLabel() -> void:
 	#position
-	var position = "Position: " + Pandora.VectorToStr(global_position)
+	var parotPosition = "Position: " + Pandora.VectorToStr(global_position)
 	var contacts = " Contacts: %s" % lastCollisionCounter
 	#drag
 	var drag = "\nDragging: %s" % dragging
@@ -170,7 +187,7 @@ func UpdateDebugLabel() -> void:
 	var linear = " Linear: " + Pandora.VectorToStr(linear_velocity)
 	
 	SignalManager.UpdateDebugLabel.emit(
-		position + 
+		parotPosition + 
 		contacts +
 		drag +
 		release +
@@ -183,7 +200,7 @@ func UpdateDebugLabel() -> void:
 		linear
 		)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	var contacts = get_colliding_bodies()
 	if contacts[0].is_in_group(GameManager.CUPGROUP) == true:
 		if collision. playing == false:

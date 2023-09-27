@@ -1,3 +1,7 @@
+CollisionShape2D
+Sprite2D
+StaticBody2D
+AnimationPlayer
 AudioStreamPlayer
 Label
 VBoxContainer
@@ -8,13 +12,9 @@ TextureButton
 TextureRect
 AudioStreamPlayer3D
 AudioStreamPlayer2D
-CollisionShape2D
 Area2D
 Timer
-StaticBody2D
 RigidBody2D
-AnimationPlayer
 VisibleOnScreenNotifier2D
 Marker2D
-Sprite2D
 CollisionPolygon2D

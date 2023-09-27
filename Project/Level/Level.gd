@@ -10,9 +10,14 @@ var parrot: PackedScene = preload("res://Project/Animal/Parrot/Parrot.tscn")
 func _ready():
 	SignalManager.UpdateDebugLabel.connect(UpdateDebugLabel)
 	SignalManager.ParrotDead.connect(ParrotDead)
+	SetUpTargets()
 	ParrotDead()
 
-func _process(delta):
+func SetUpTargets() -> void:
+	var targetCup = get_tree().get_nodes_in_group(GameManager.CUPGROUP)
+	ScoreManager.SetTargetCups(targetCup.size())
+
+func _process(_delta):
 	if ( Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_ESCAPE)):
 		GameManager.LoadMainScene()
 

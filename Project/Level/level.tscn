@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c61pgqxfrg14h"]
+[gd_scene load_steps=7 format=3 uid="uid://c61pgqxfrg14h"]
 
 [ext_resource type="Script" path="res://Project/Level/Level.gd" id="1_3jpst"]
 [ext_resource type="Texture2D" uid="uid://b3lcljag44y1n" path="res://assets/scene/colored_castle.png" id="1_ftscm"]
 [ext_resource type="PackedScene" uid="uid://ceoukj3ee1wam" path="res://Project/CanvasUI/CanvasUI.tscn" id="2_7iix5"]
 [ext_resource type="Script" path="res://Project/Singletons/SignalManager.gd" id="4_vb2rt"]
 [ext_resource type="PackedScene" uid="uid://vc28a5expyb" path="res://Project/Water/Water.tscn" id="5_4ei13"]
+[ext_resource type="PackedScene" uid="uid://cfw4t0244alqy" path="res://Project/Launch/Launch.tscn" id="6_q1lox"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3jpst")
@@ -34,7 +35,10 @@ script = ExtResource("4_vb2rt")
 metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(108, 420)
+position = Vector2(155, 370)
 gizmo_extents = 0.0
 
 [node name="Area2D" parent="." instance=ExtResource("5_4ei13")]
+
+[node name="Node2D" parent="." instance=ExtResource("6_q1lox")]
+position = Vector2(31, 413)

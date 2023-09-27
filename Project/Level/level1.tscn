@@ -6,4 +6,10 @@
 [node name="Level" instance=ExtResource("1_qxfsb")]
 
 [node name="Woodcup" parent="." index="4" instance=ExtResource("2_jt85c")]
-position = Vector2(827, 414)
+position = Vector2(481, 466)
+
+[node name="Woodcup2" parent="." index="5" instance=ExtResource("2_jt85c")]
+position = Vector2(704, 373)
+
+[node name="Woodcup3" parent="." index="6" instance=ExtResource("2_jt85c")]
+position = Vector2(930, 300)
