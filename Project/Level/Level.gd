@@ -3,8 +3,9 @@ extends Node2D
 #Parrot
 var parrot: PackedScene = preload("res://Project/Animal/Parrot/Parrot.tscn")
 @onready var startPosition = $StartPosition
-
 @onready var debugLabel = $"Debug Label"
+
+@onready var canvas_layer = $CanvasLayer
 
 func _ready():
 	SignalManager.UpdateDebugLabel.connect(UpdateDebugLabel)
@@ -19,6 +20,7 @@ func UpdateDebugLabel(text: String) -> void:
 	debugLabel.text = text
 
 func ParrotDead() -> void:
-	var newParrot = parrot.instantiate()
-	newParrot.global_position = startPosition.global_position
-	add_child(newParrot)
+	if canvas_layer.levelCompleted.visible == false:
+		var newParrot = parrot.instantiate()
+		newParrot.global_position = startPosition.global_position
+		add_child(newParrot)

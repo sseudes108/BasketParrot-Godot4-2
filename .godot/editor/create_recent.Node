@@ -1,9 +1,10 @@
-HBoxContainer
-VBoxContainer
-Label
-MarginContainer
-TextureButton
 AudioStreamPlayer
+Label
+VBoxContainer
+MarginContainer
+CanvasLayer
+HBoxContainer
+TextureButton
 TextureRect
 AudioStreamPlayer3D
 AudioStreamPlayer2D

@@ -94,6 +94,7 @@ func Release():
 	apply_central_force(GetImpulse())
 	lunch.pitch_scale = randf_range(0.7,1.1)
 	lunch.play()
+	ScoreManager.AttemptMade()
 
 func GetImpulse() -> Vector2:
 	return draggedVector * -1 * IMPULSEFORCE

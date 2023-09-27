@@ -42,6 +42,24 @@ func SetTargetCups(cups: int) -> void:
 	targetCups = cups
 	print("Set Target Cups: ", targetCups)
 
+func AttemptMade() -> void:
+	attempts +=1;
+	SignalManager.AttemptMade.emit()
+	print("Attempt Made() Target Cups:%s, Attempts:%s, Cups Hit:%s" % [
+		targetCups, attempts, cupsHit
+	])
+
+func GameOver() -> void:
+	if cupsHit >= targetCups:
+		print("Game Over: ", levelScores)
+		SignalManager.GameOver.emit()
+		if levelScores[levelSelected] > attempts:
+			levelScores[levelSelected] = attempts
+			print("Record Set: ", levelScores)
 
 func CupVanished() -> void:
-	cupsHit += 1 
+	cupsHit += 1
+	print("Cup Vanished() targetCups:%s, attempts:%s, Cup Hits:%s" % [
+		targetCups, attempts, cupsHit
+	]) 
+	GameOver()

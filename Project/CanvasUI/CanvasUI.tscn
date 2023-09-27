@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceoukj3ee1wam"]
+
+[ext_resource type="LabelSettings" uid="uid://ciuv5lodtbco3" path="res://Project/CanvasUI/LabelSettings.tres" id="1_do3t2"]
+[ext_resource type="Script" path="res://Project/CanvasUI/CanvasUI.gd" id="1_qjw3v"]
+[ext_resource type="FontFile" uid="uid://dm225yuimhskd" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_23sly"]
+[ext_resource type="LabelSettings" uid="uid://bvntm02osofot" path="res://Project/CanvasUI/Jump.tres" id="3_shmo0"]
+[ext_resource type="AudioStream" uid="uid://dh37pmyrv16fd" path="res://assets/audio/jazzyfrenchy.mp3" id="4_qkx08"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ne4gp"]
+font = ExtResource("2_23sly")
+font_size = 72
+font_color = Color(0.164706, 0.792157, 0.682353, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0.0627451, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_qjw3v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Level Info" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="level" type="Label" parent="MarginContainer/Level Info"]
+layout_mode = 2
+text = "level: 1
+"
+label_settings = ExtResource("1_do3t2")
+
+[node name="Attempts" type="Label" parent="MarginContainer/Level Info"]
+layout_mode = 2
+text = "Attempts: 0"
+label_settings = ExtResource("1_do3t2")
+
+[node name="Level Completed" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Level Completed" type="Label" parent="MarginContainer/Level Completed"]
+layout_mode = 2
+text = "Level Completed"
+label_settings = SubResource("LabelSettings_ne4gp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Press Jump" type="Label" parent="MarginContainer/Level Completed"]
+layout_mode = 2
+text = "Press Jump"
+label_settings = ExtResource("3_shmo0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qkx08")

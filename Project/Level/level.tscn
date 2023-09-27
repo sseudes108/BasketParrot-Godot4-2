@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c61pgqxfrg14h"]
+[gd_scene load_steps=6 format=3 uid="uid://c61pgqxfrg14h"]
 
 [ext_resource type="Script" path="res://Project/Level/Level.gd" id="1_3jpst"]
 [ext_resource type="Texture2D" uid="uid://b3lcljag44y1n" path="res://assets/scene/colored_castle.png" id="1_ftscm"]
+[ext_resource type="PackedScene" uid="uid://ceoukj3ee1wam" path="res://Project/CanvasUI/CanvasUI.tscn" id="2_7iix5"]
 [ext_resource type="Script" path="res://Project/Singletons/SignalManager.gd" id="4_vb2rt"]
 [ext_resource type="PackedScene" uid="uid://vc28a5expyb" path="res://Project/Water/Water.tscn" id="5_4ei13"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3jpst")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_7iix5")]
 
 [node name="ColoredCastle" type="Sprite2D" parent="."]
 position = Vector2(538, 294)
@@ -14,6 +17,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_ftscm")
 
 [node name="Debug Label" type="Label" parent="."]
+visible = false
 offset_left = 27.0
 offset_top = 27.0
 offset_right = 447.0
